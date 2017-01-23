@@ -1,140 +1,407 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <html>
 <head>
+<title>VIT LIBRARY MANAGEMENT SYSTEM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			<!--style-->
+		<link rel="stylesheet" type="text/css" href="CSS/style.css" />
+			<!--JS
+		<script type="text/javascript" src="JS/java.js"></script>  -->
 <style>
-a:link{color:white;}
-a:hover{color:white;}
-a:vlink{color:white;}
-a:active{color:white;}
-a:visited{color:#8000FF;}
-th{background-color:#5858FA}
-table,th,td{border:1px solid black;border-collapse:collapse;width:100%}
-div.b1{background-color:#85C1E9;font-family:verdana;height:92%;width:60%;float:left;}
-div.b2{background-color:#BFC9CA;font-family:arial;height:92%;width:40%;float:right;}
-div.b3{background-color:#58ACFA;height:20%;width:100%;}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit] {
+    background-color: #333;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 20%;
+    height: 60%
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 1% auto 15% auto; /* % from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
 </style>
-<title> IPL FEVER </title>
+
+<style>
+#header
+{
+	
+	width:100%;
+	height:150px;
+	overflow: hidden;
+}
+body{
+	margin:0;
+	padding:0;
+	
+}
+
+
+#centre
+{
+	/*background:url(../a.jpg) repeat-x #060606;*/
+	width:100%;
+	float:left;
+	 overflow: hidden;
+	 border-style:solid;
+	 border-width: 0px 1px ;
+	background-color:white;
+}
+#left
+{
+	float:left;
+/*	background:url(../b.jpg) repeat-x #060606;*/
+	width:8%;
+	overflow: hidden;
+	height:1000px;
+}
+#right
+{
+	
+	float:right;
+/*	background:url(../b.jpg) repeat-x #060606; */
+	width:8%;
+	clear: right;
+	overflow: hidden;
+	height:1000px;
+	
+}
+
+#footers
+{
+	width:100%;
+	height:150px;
+	overflow:hidden;
+}
+
+/* LIST */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	border-style:solid;
+	border-width:2px;
+}
+
+li {
+    float: left;
+	
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 18px 20px;
+    text-decoration: none;
+	
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+	
+	}
+
+#head1 {
+    font-size: 3.56rem;
+    line-height: 110%;
+    margin: 1.78rem 0 1.424rem 0;
+}
+
+#head2{
+    font-size: 2.28rem;
+    line-height: 110%;
+    margin: 1.14rem 0 0.912rem 0;
+}
+.mySlides {display:none;}
+#d1{
+font-family: "Times New Roman", Times, serif;
+font-size: 30px;
+color:#000000;
+}
+</style>
+<script>
+function validation1()
+{
+	var a = document.f1.au.value;
+	var b = document.f1.ap.value;
+	if(a == "")
+	{
+		alert('Please enter username');
+		document.f1.au.focus();
+		
+		return false;
+	}
+	if(b == "")
+	{
+		alert('Please enter password');
+		document.f1.ap.focus();
+		
+		return false;
+	}
+	
+	if(a != "user")
+	{
+		alert('Username is incorrect');
+		document.f1.au.focus();
+		return false;
+	}
+	if(b != "1234")
+	{
+		alert('password is incorrect');
+		document.f1.ap.focus();
+		return false;
+	}
+	
+
+}
+function validation2()
+{
+var c = document.f2.su.value;
+var d = document.f2.sp.value;
+if(c == "")
+	{
+		alert('Please enter username');
+		document.f2.su.focus();
+		
+		return false;
+	}
+	if(d == "")
+	{
+		alert('Please enter password');
+		document.f2.sp.focus();
+		
+		return false;
+	}
+var e = /^1[3-6]{1}[A-Z]{3}[0-9]{4}$/;
+	if(!c.match(e))
+	{
+		alert('Enter your registration no as username');
+		document.f2.su.focus();
+		return false;
+	}
+}
+</script>
 </head>
-<body>
-<div class="b1">
-<center><h1>INDIAN PREMIER LEAGUE 2016</h1></center><br>
-<font size="1">QUESTION-Design a web page for IPL fever. The webpage should contain three divisions. The webpage is divided into two divisions. The divisions are placed from left to write. The width of the first division is more than the second division. The first division contains links placed horizontally. The links are: Teams, Team owners, Images of matches, schedule and About Me(developer). When the links are clicked, the information is displayed in a separate tab. The second division should have points table and Players’ performance table. The page further has a division at the bottom with the width 100% that displays Facebook links, twitter links and star sports links and the current match details(Match to be played on that day) Apply styling to your personal webpages using CSS.</font> 
-<p align="right">NAME-MANSI DIXIT<br>REGISTRATION NO-15BIT0179<br>SLOT-D1<br>COURSE-CODE-ITE1002<br></p>	
-<h4>
-<a href="da21.html" target="_blank">TEAM</a>
-<a href="da22.html" target="_blank">TEAM OWNERS</a>
-<a href="da23.html" target="_blank">IMAGES OF MATCH</a>
-<a href="da24.html" target="_blank">SCHEDULE</a>
-<a href="da25.html" target="_blank">ABOUT ME(developer)</a>
-</h4>
-<center><img src="IPL.jpg" style="float:center;height:220;width:400"></center>
+<body background-color="000000">
+<div id="header" style="background-color:white;">		
+	<center><h1 id="head1"><font color="black">WELCOME TO VIT LIBRARY</font></h1></center>
+	</div>	
+				<ul>   
+				  <li><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">ADMIN LOGIN</button></li>
+				  <li><button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">STUDENT LOGIN</button></li>
+				  <li><a href="gh">ABOUT US</a></li>
+				</ul>
+				</div>
+				
+		</div>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" name="f1" method="post" action="alogin.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="avatar1.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" name="au" id="aun" placeholder="Enter Username" autofocus>
+
+      <label><b>Password</b></label>
+      <input type="password" id="apw" name="ap" placeholder="Enter Password" autofocus>
+      <input type="submit" onmouseover="validation1()" value="Login" onsubmit="go()">
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
 </div>
-<div class="b2">
-<div class="b4">
-<center><h3>POINTS TABLE</h3></center>
+<div id="id02" class="modal">
+  
+  <form method="post" class="modal-content animate" name="f2" action="second.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="avatar2.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" name="su" placeholder="Enter Username" autofocus>
+
+      <label><b>Password</b></label>
+      <input type="password" name="sp" placeholder="Enter Password" autofocus>
+        
+     <input type="submit" onmouseover="validation2()" value="Login">
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
 </div>
-<table>
-<tr>
-<th>TEAM NAME</th>
-<th>NO OF MATCHES WON</th>
-<th>NO OF MATCHES LOST</th>
-<th>POINTS</th>
-</tr>
-<tr>
-<td>GUJARAT LIONS</td>
-<td>9</td>
-<td>5</td>
-<td>18</td>
-</tr>
-<tr>
-<td>ROYAL CHALLENGERS BANGALORE</td>
-<td>8</td>
-<td>6</td>
-<td>16</td>
-</tr>
-<tr>
-<td>DELHI DAREDEVILS</td>
-<td>8</td>
-<td>6</td>
-<td>16</td>
-</tr>
-<tr>
-<td>KOLKATA KNIGHT RIDERS</td>
-<td>8</td>
-<td>6</td>
-<td>16</td>
-</tr>
-<tr>
-<td>MUMBAI INDIANS</td>
-<td>7</td>
-<td>7</td>
-<td>14</td>
-</tr>
-<tr>
-<td>SUNRISERS HYDERABAD</td>
-<td>7</td>
-<td>7</td>
-<td>14</td>
-</tr>
-</tr>
-</table>
-<div class="b4">
-<center><h3>PLAYERS PERFORMANCE TABLE</h3></center>
+<div class="w3-content w3-section" style="max-width:1450px;background-color:white;">
+  <img class="mySlides" src="l2.jpg"  width="100%" height="450">
+  <img class="mySlides" src="l3.jpg"  width="100%" height="450">
+  <img class="mySlides" src="l5.jpg"  width="100%" height="450">
+  <img class="mySlides" src="l7.jpg"  width="100%" height="450">
+  <img class="mySlides" src="l1.jpg"  width="100%" height="450">
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+<div style="background-color:#000; color:#FFFFFF; text-align:right">
+<ul>				
+				  <li><h5>CONNECT WITH US:</h5></li>
+				  <li><a href="www.facebook.com">Like us on FACEBOOK</a><br></li>
+				  <li>CONTACT US-<br>PHONE NO-0771-4556723,2345132<br>EMAIL ID-vitlibrary.vit.ac.in<br></li>
+				</ul>
+
+
 </div>
-<table>
-<tr>
-<th>NAME OF PLAYER</th>
-<th>NO OF MATCHES PLAYED</th>
-<th>RUNS SCORED</th>
-<th>AVERAGE</th>
-</tr>
-<tr>
-<td>VIRAT KOHLI</td>
-<td>10</td>
-<td>504</td>
-<td>90.7</td>
-</tr>
-<tr>
-<td>CHRIS GAYLE</td>
-<td>9</td>
-<td>480</td>
-<td>87.5</td>
-</tr>
-<tr>
-<td>MAHENDRA SINGH DHONI</td>
-<td>9</td>
-<td>500</td>
-<td>50.5</td>
-</tr>
-<tr>
-<td>YUSUF PATHAN</td>
-<td>7</td>
-<td>308</td>
-<td>70.8</td>
-</tr>
-<tr>
-<td>GAUTAM GAMBHIR</td>
-<td>8</td>
-<td>409</td>
-<td>40.6</td>
-</tr>
-</table>
 </div>
-<div style="background-color:#08088A;">
-<font color="white">
-LIKE US ON OUR FACEBOOK PAGE-<a href="http://www.facebook.com" target="_blank">login to facebook</a><br>
-FOLLOW US ON TWITTER-<a href="http://www.twitter.com" target="_blank">login to twitter</a><br>
-<a href="http://www.starsports.live.com" target="_blank">STAR SPOTRS LIVE:</a>
-TODAY's LEAGUE-Delhi Daredevils vs Rajasthan Royals @4:00pm
-</font>
-</div>
-</body>
+
+
+	</body>
 </html>
+
+
 
 
 
